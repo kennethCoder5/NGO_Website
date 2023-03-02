@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+  <link rel="stylesheet" href="./style/form.css">
+</head>
+<body>
+
+  <div class="marq">
+    <marquee behavior="alternate" direction="" loop="" >
+      <h3>INNVASIA  LEARNEX  FOUNDATION</h3>
+    </marquee>
+  </div>
+
+  <div class="container">
+
+    <form method="post" name="google-sheet" target="#">
+      <h2>Form</h2>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="fname" name="First Name" placeholder="Your first name..">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="lname" name="Last Name" placeholder="Your last name..">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="fname">Father Name</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="fathername" name="Father Name" placeholder="Father Name">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="fname">Mother Name</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="mothername" name="Mother Name" placeholder="Mother Name">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="email">Email</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="email" name="Email" placeholder="example@gmail.com">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="email">Phone Number</label>
+        </div>
+        <div class="inputType">
+          <input type="text" id="phone" name="Phone no" placeholder="01234 56789">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="select">Gender</label>
+        </div>
+        <div class="inputType"> 
+          <select name="Gender" id="select">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="select">Qualification</label>
+        </div>
+        <div class="inputType"> 
+          <select name="Qualification" id="select">
+            <option value="">Select</option>
+            <option value="10th Less">10th Less</option>
+            <option value="10th Pass" >10th Pass</option>
+          </select>
+        </div>
+      </div> 
+
+      <div class="row">
+            <div class="labelType">
+            <label for="adress">Address</label>
+            </div>
+            <div class="inputType">
+                <textarea type="text" id="adress" name="Address" rows="5" cols="50" placeholder="Your adress.."></textarea><br>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="labelType">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="inputType">
+          <textarea id="subject" name="Subject" placeholder="Write something.." style="height:160px"></textarea>
+
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <input type="submit" value="Submit" name="submit"> 
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyqIzb1GLp7M9SKZ97kqzbjnb8UQ81-yU7L45Al5id5Q4MS4rxECGtt8p0ERwZpsEzKLg/exec'
+    const form = document.forms['google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>  
+
+</body>
+</html>
+
+
